@@ -1,0 +1,36 @@
+<div id="top_title" class="top_title">    
+  <div id="help" class="help" onclick="helpEffect('intro_whichone')"> </div>
+
+  <div id="inner_title" class="inner_title">  &nbsp; </div>
+
+  <div id="settings" class="settings"> </div>
+</div>
+
+<div id="rope_container" class="rope_container">
+  <div id="rope" class="rope"> </div>
+
+
+  <div id="central_text" class="central_text">
+    <div id="inner_text" class="inner_text"> 
+      
+      <span id="title_top" class="title_top"> Bienvenido</span>
+
+      <p> We decided that we wanted to put some fun,
+        reality and common sense into language learning, so we made uSpeak. <br/>
+        We hope you enjoy it...</p>
+
+    </div>
+  </div>
+</div>
+
+<div id="buttons" class="buttons">
+  <div class="button_start" onclick="loadGame()" title="Start Game"> <span> Juegos </span> </div>
+  <div class="button_words"  > <span> Palabras </span> </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $(".rope_container").animate({"top": "+=480px"}, 3000);
+//    $(".buttons").animate({"top": "+=-550px"}, 1500);
+  });
+</script>

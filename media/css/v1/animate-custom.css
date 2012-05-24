@@ -1,0 +1,24 @@
+#caja{
+  transition-duration: .5s;
+  -o-transition-duration: .5s;
+  -moz-transition-duration: .5s;
+  -webkit-transition-duration: .5s;
+  width: 400px;
+  height: 200px;
+  border: 8px solid #000;
+  border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  margin: 0 auto;
+  background: #505050;
+  color:#808080;
+  font-size: 30px;
+  font-weight:bold;
+  font-family: Arial;
+  text-shadow: 0px 1px 2px #000;
+}
+#caja:hover{
+  width: 550px;
+  height: 250px;
+  font-size: 40px;
+}

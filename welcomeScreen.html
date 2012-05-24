@@ -1,0 +1,348 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>uSpeak Games</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Paytone+One' rel='stylesheet' type='text/css'>
+
+        <link rel="STYLESHEET" href="/media/css/v1/style.css" type="text/css">
+        <link rel="STYLESHEET" href="/media/css/v1/jquery.tzineClock.css" type="text/css">
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+        <script>
+          PARTIAL_URLS = {
+            association:"partialScreen/fillerAssociationGame.html",
+            fatfinger:"partialScreen/fillerFatFingerGame.html",
+            whichone:"partialScreen/fillerWichOneGame.html",
+            levelbuttons:"partialScreen/levelButtons.html",
+            mainpanel:"partialScreen/mainPanel.html",
+            mainscreen:"partialScreen/mainScreen.html",
+            gamescreen:"partialScreen/gamesScreen.html",
+            pregamescreen:"partialScreen/preGamesScreen.html",
+            userregister:"partialScreen/userRegister.html"
+          };
+          REST_URL = 'http://'  + document.domain + ':85/us/';
+          // CSRF_TOKEN = "{{csrf_token}}";
+        </script>
+
+        <script type="text/javascript" src="/media/js/v1/libs/jquery.countDown.js"></script>
+        <script type="text/javascript" src="/media/js/v1/libs/jquery.tzineClock/jquery.tzineClock.js"></script>
+
+        <script type="text/javascript" src="/media/js/v1/draggable.js"></script>
+
+        <script type="text/javascript" src="/media/js/v1/restFunctions.js"></script>
+
+        <script type="text/javascript" src="/media/js/v1/basicFunctions.js"></script>
+
+
+        <script type="text/javascript" src="/media/js/v1/associationGameFunctions.js"></script>
+        <script type="text/javascript" src="/media/js/v1/whichOneGameFunctions.js"></script>
+        <script type="text/javascript" src="/media/js/v1/fatFingerFunctions.js"></script>
+        <script type="text/javascript" src="/media/js/v1/fatFinger/Card.js"></script>
+        <script type="text/javascript" src="/media/js/v1/fatFinger/Box.js"></script>
+
+        <script type="text/javascript" src="/media/js/v1/start.js"></script>
+
+    </head>
+    <body>
+        <div id="container" class="container" >
+            <div id="splash" style="z-index: 999; position: absolute">
+                <img id="splashBase" src="/media/img/v1/splashscreen/baseSplash.jpg" style="position:absolute; z-index: 998; " />
+            </div>
+            <div id="screen1" >
+
+                <div id="top_title" class="top_title">
+
+                    <div id="help" class="help" onclick="helpEffect('screen1')"> </div>
+
+                    <h1 id="inner_title" class="inner_title" style="top: -15px;">  &nbsp; </h1>
+
+                    <div id="settings" class="settings" onclick="settingsEffect()" > </div>
+                </div>
+
+                <div id="mini_rope_container" class="mini_rope_container">
+                    <div id="top_inner_text" class="top_inner_text"> 
+                        <span id="title_top" class="title_top"> Welcome! </span> <br> <br>
+                        <span id="text_top" class="text_top"> 
+                            Un viaje de mil kilometros empieza con el primer paso.<br/>
+                            A thousand-mile journey begins with the first step
+
+                        </span> <br/> <br/>
+                        <span id="text_bottom" class="text_top"> 
+                            <!--              How's your Spanish?-->
+                        </span>
+                    </div>
+
+                    <div id="mini_central_text" class="mini_central_text">
+
+                        <div id="mini_inner_text" class="mini_inner_text" style="padding: 55px;">
+                            <span id="textLevel" class="text_Level" > ¿Ya eres parte de uSpeak? </span>
+                            <br>
+                            <div id="levelContainer" class="levelContainer" style="width: 133px; left: 0px;">
+                                <div class="welcome_button_Yes" onclick=" transition('#screen1', '#screen4')"> <span> YES </span> </div>
+                                <div class="welcome_button_No" onclick=" transition('#screen1', '#screen2')" > <span> NO </span> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="screen2" style="display: none;">
+
+                <div id="top_title" class="top_title">    
+                    <div id="help" class="help" onclick="helpEffect('screen2')"> </div>
+
+                    <div id="inner_title" class="inner_title" >  &nbsp; </div>
+
+                    <div id="settings" class="settings" onclick="settingsEffect()"  > </div>
+                </div>
+
+                <div id="rope_container" class="rope_container" style="top: -142px;">
+                    <div id="rope" class="rope"> </div>
+
+
+                    <div id="central_text" class="central_text">
+                        <div id="inner_text" class="inner_text"> 
+
+                            <span id="title_top" class="title_top"> Welcome</span>
+                            <p> Hace tiempo decidimos que queríamos ponerle diversión, 
+                                realismo y sentido común al aprendizaje de lenguas, por eso creamos uSpeak.<br/><br/>
+                                Esperamos que lo disfrutes...</p>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="buttons" class="buttons">
+                    <div class="button_start" onclick="transition('#screen2', '#screen3')" title="Start Game"> <span> GAMES </span> </div>
+                    <div class="button_words"  > <span> Palabras </span> </div>
+                </div>
+
+
+
+            </div>
+
+            <div id="screen3" style="display: none">
+                <div id="top_title" class="top_title">
+                    <div id="help" class="help" onclick="helpEffect('screen3');"> </div>
+
+                    <h1 id="inner_title" class="inner_title"  style="background-image: none;">  Games </h1>
+
+                    <div id="settings" class="settings" onclick="settingsEffect()" > </div>
+                </div>
+
+                <div id="mini_rope_container" class="mini_rope_container">
+                    <div id="top_inner_text" class="top_inner_text"> 
+                        <span id="title_top" class="title_top"> Aqui es donde comienza la magia</span> <br> <br>
+                        <span id="text_top" class="text_top"> 
+                            Vamos a jugar algunos juegos para darnos una idea de tu nivel.
+
+                        </span> <br> <br>
+                        <span id="text_bottom" class="text_top"> 
+                            ¿Qué tal está tu inglés?
+                        </span>
+                    </div>
+
+                    <div id="mini_central_text" class="mini_central_text">
+                        <div id="left_arrow" class="left_arrow" onclick="backLevel()"> </div>
+
+                        <div id="mini_inner_text" class="mini_inner_text">
+                            <span id="titleLevel" class="title_Level"> nothing </span> <br> <br>
+                            <span id="textLevel2" class="text_Level">   Soy Un Principiante Total </span>
+                            <div id="levelContainer" class="levelContainer" style="margin: auto; position: relative; width: 200px;">
+                                <div id="level1" class="level" onclick="changeLevel(1)"> </div>
+                                <div id="level2" class="level" onclick="changeLevel(2)"> </div>
+                                <div id="level3" class="level" onclick="changeLevel(3)"> </div>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div id="right_arrow" class="right_arrow" onclick="nextLevel()"> </div>
+                    </div>
+
+                    <div id="buttonStart" class="buttonStart" >
+                        <div id="buttonStartInner"  class="buttonStartInner" onclick="beginDiagnostic(fillerWhichOne);"> ¡VAMOS!</div>
+                    </div>
+
+                </div>
+
+                <div id="buttonsHome" class="buttonsHome">
+                    <div class="button_home" onclick="transition('#screen3', '#screen2');" title="HOME" > <span>  </span> </div>
+                </div>
+            </div>
+
+            <div id="screen4" style="display: none">
+                <div id="top_title" class="top_title">
+
+                    <div id="help" class="help" onclick="helpEffect('screen4');"> </div>
+
+                    <h1 id="inner_title" class="inner_title"  style="background-image: none;">  Welcome Back </h1>
+
+                    <div id="settings" class="settings" onclick="settingsEffect()" > </div>
+                </div>
+
+                <div id="mini_rope_container" class="mini_rope_container">
+                    <div id="top_inner_text" class="top_inner_text" style=" top: 210px;"> 
+                        <!--                        <span id="title_top" class="title_top"> </span> <br> <br>-->
+                        <span id="text_top" class="text_top" > 
+                            El que lee mucho y anda mucho,  ve mucho y sabe mucho. 
+                            La Plumas es la lengua del Alma.
+                        </span> <br> <br>
+                        <span id="text_bottom" class="text_top"> 
+                            Miguel de Cervantes - Autor Don Quijote
+                        </span>
+                    </div>
+
+                    <div id="mini_central_text" class="mini_central_text">
+
+                        <div id="mini_inner_text" class="mini_inner_text">
+                            <div id="levelContainer" class="levelContainer" style="margin: auto; position: relative; width: 200px; left: 0px; top: 15px;">
+
+                                <div id="userRegister" class="userRegister" >
+
+                                    <input id="emailLogin" type="text" class='inputUser'  value="E-MAIL" onclick="if(this.value=='E-MAIL') this.value=''" onblur="if(this.value=='') this.value='E-MAIL'"/><br />
+                                    <input id="passwordLogin" type="password" name="password" class='inputUser' value='PASSWORD' onclick="if(this.value=='PASSWORD') this.value=''" onblur="if(this.value=='') this.value='PASSWORD'"/><br />
+                                    <a href="#"> ¿Has olvidado tu Contraseña?</a>
+
+                                </div>
+
+
+                            </div>
+                            <br>
+                        </div>
+
+                    </div>
+
+                    <div id="buttonStart" class="buttonStart" >
+                        <div id="buttonLogin"  class="buttonStartInner" > VAMOS </div>
+                    </div>
+
+                </div>
+
+                <div id="buttonsHome" class="buttonsHome">
+                    <div class="button_home" onclick="transition('#screen4', '#screen1');" title="HOME" > <span>  </span> </div>
+                </div>
+            </div>
+
+            <!--            <div id="screen5" style="display: none">
+                            <div id="top_title" class="top_title">
+            
+                                <div id="help" class="help" onclick="helpEffect('screen5');"> </div>
+            
+                                <h1 id="inner_title" class="inner_title"  style="background-image: none;">  Settings </h1>
+            
+                                <div id="settings" class="settings"  onclick="transition('#screen5', '#screen1');"> </div>
+                            </div>
+            
+                            <div id="mini_rope_container" class="settingsBackground">
+            
+                                <div id="generalSettings" class="generalSettings"> 
+                                    General
+                                    <div id="musicVolume" class="musicVolume"> Music Volume <div id="musicOn" class="buttonsActive"> </div> </div> 
+                                    <div id="effectVolume" class="musicVolume">Effect Volume <div id="effectOn" class="buttonsActive"> </div> </div> 
+                                </div>
+            
+                                <div id="shareSettings" class="generalSettings"> 
+                                    Share 
+                                    <div id="shareUspeak" class="musicVolume"> uSpeak with a frien  <div id="shareOn" class="buttonsActive"></div> </div>  
+                                    <div id="feedback" class="musicVolume">Your feedback with Us <div id="feedbackOn" class="buttonsActive"></div>  </div> 
+                                </div>
+            
+            
+            
+                                <div class="loginSettings">
+                                    Account: <br/>
+                                    <input id="email" type="text" class='inputUserSettings'  value="E-MAIL" onclick="if(this.value=='E-MAIL') this.value=''" onblur="if(this.value=='') this.value='E-MAIL'"/>
+                                    <input id="pass" type="password" name="password" class='inputUserSettings' value='PASSWORD' onclick="if(this.value=='PASSWORD') this.value=''" onblur="if(this.value=='') this.value='PASSWORD'"/><br />
+                                    <div style="margin:auto; width:266px; padding-top: 10px;">
+                                        <div id="saveSettings" class="buttonSetting" > Save </div>
+                                        <div id="logOutSettings" class="buttonSetting"> Log Out</div>
+                                    </div>
+            
+                                </div>
+            
+                                <div id="buttonsHome" class="buttonsHome" style="top: -72px">
+                                    <div class="button_home" onclick="transition('#screen5', '#screen1');" title="HOME" > <span>  </span> </div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+            
+            
+                    </div>-->
+        </div>
+
+
+        <div id="screen6" class="alpha" style="display: none">
+
+
+        </div>
+        <div id="screen7"  style="display: none">
+
+
+        </div>
+        <div id="effect" class="effect " >
+            Ready
+        </div>
+
+        <div id="screen5" style="display: none">
+            <div id="top_title" class="top_title">
+
+                <div id="help" class="help" onclick="helpEffect('screen5');"> </div>
+
+                <h1 id="inner_title" class="inner_title"  style="background-image: none;">  Settings </h1>
+
+                <div id="settings" class="settings"  onclick="transition('#screen5', '#screen1');"> </div>
+            </div>
+
+            <div id="mini_rope_container" class="settingsBackground">
+
+                <div id="generalSettings" class="generalSettings"> 
+                    General
+                    <div id="musicVolume" class="musicVolume"> Music Volume <div id="musicOn" class="buttonsActive"> </div> </div> 
+                    <div id="effectVolume" class="musicVolume">Effect Volume <div id="effectOn" class="buttonsActive"> </div> </div> 
+                </div>
+
+                <div id="shareSettings" class="generalSettings"> 
+                    Share 
+                    <div id="shareUspeak" class="musicVolume"> uSpeak with a frien  <div id="shareOn" class="buttonsActive"></div> </div>  
+                    <div id="feedback" class="musicVolume">Your feedback with Us <div id="feedbackOn" class="buttonsActive"></div>  </div> 
+                </div>
+
+
+
+                <div class="loginSettings">
+                    Account: <br/>
+                    <input id="email" type="text" class='inputUserSettings'  value="E-MAIL" onclick="if(this.value=='E-MAIL') this.value=''" onblur="if(this.value=='') this.value='E-MAIL'"/>
+                    <input id="pass" type="password" name="password" class='inputUserSettings' value='PASSWORD' onclick="if(this.value=='PASSWORD') this.value=''" onblur="if(this.value=='') this.value='PASSWORD'"/><br />
+                    <div style="margin:auto; width:266px; padding-top: 10px;">
+                        <div id="saveSettings" class="buttonSetting" > Save </div>
+                        <div id="logOutSettings" class="buttonSetting"> Log Out</div>
+                    </div>
+
+                </div>
+
+                <div id="buttonsHome" class="buttonsHome" style="top: -72px">
+                    <div class="button_home" onclick="transition('#screen5', '#screen1');" title="HOME" > <span>  </span> </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+    </body>
+</html>
+

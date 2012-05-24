@@ -1,0 +1,71 @@
+<script>
+
+  $('#container').css({
+    'background-image': 'url("/media/img/v1/games/background.png")'
+  });
+  
+  $('#inner_title').css({'background-image': "none"})
+  
+   $('#btn_question').bind('click', function(){
+        
+        helpGame(nameCurrentGame)
+        
+    })
+  
+</script>
+
+<div id='head_game' class='head_game'>
+
+  <div id="time" class="time">
+    <div id="fancyClock">
+      <div class="clock">
+        <div class="display"></div>
+
+        <div class="front left"></div>
+
+        <div class="rotate left">
+          <div class="bg left"></div>
+        </div>
+
+        <div class="rotate right">
+          <div class="bg right"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="rounds" class="rounds">
+    Rounds: <span id="numberRounds" class="numberRounds"> 0/15 </span>
+  </div>
+
+  <div id="gameName" class="gameName">
+
+  </div>
+
+  <div id="points" class="points">
+    Score: <span id="score" class="numberRounds" >   </span>
+    <div id="imageLives" class="imageLives"> Lives 
+      <div id="heart1" class="heart"> Lives </div>
+      <div id="heart2" class="heart"> Lives </div>
+      <div id="heart3" class="heart"> Lives </div>
+    </div>
+  </div>
+</div>
+
+<div id='body_game' class='body_game' >
+
+</div>
+
+
+<div id='footer_game' class='footer_game'>
+  <div id="leftControl" class="leftControl">
+    <div id="btn_back" class='btn_back' onclick="processBackGame()" > BACK</div>
+    <div id="btn_question" class='btn_question'> QUESTIONS</div>
+  </div>
+
+  <div id="rightControl" class="rightControl">
+    <!--    <div id="btn_next" class='btn_next' onclick="processNextGame();" > NEXT</div>-->
+    <div id="btn_pause" class='btn_pause' > PAUSE</div>
+    <div id="btn_volume" class='btn_volume' onclick="processSound();" > VOLUME</div>
+  </div>
+</div>

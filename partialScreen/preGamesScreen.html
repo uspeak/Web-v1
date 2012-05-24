@@ -1,0 +1,58 @@
+<script>
+  $('#buttons').css ({
+    'top': '-268px',
+    'left': '-450px',
+    'background-image': "url('/media/img/v1/stick_small.png')"
+  });
+  
+  $('#inner_title').css({'background-image': "none"})
+  
+    
+     $('#help').bind('click', function(){
+        
+        helpEffect(nameCurrentGame)
+        
+    })
+  
+  
+  
+</script>
+<div id="top_title" class="top_title">
+    
+    <div id="help" class="help" > </div>
+
+    <h1 id="inner_title" class="inner_title">  Games </h1>
+    
+    <div id="settings" class="settings" onclick="settingsEffect()"> </div>
+</div>
+
+<div id="mini_rope_container" class="mini_rope_container" style="display: none">
+    <div id="top_inner_text" class="top_inner_text"> 
+        <span id="title_top" class="title_top"> </span> <br> <br>
+
+        <span id="text_top" class="text_top"> </span> <br> <br> 
+
+        <span id="text_bottom" class="text_top"> </span>
+    </div>
+
+
+    <div id="mini_central_text" class="mini_central_text">
+        <div id="imageGame" class="imageGame">
+
+        </div>
+
+        <span id="text_bottom_image" class="text_bottom_image"> </span>
+    </div>
+
+    <div id="buttonStart" class="buttonStart" >
+
+    </div>
+</div>
+<div id="buttonsHome" class="buttonsHome">
+  <div class="button_home" onclick="location.reload();" title="HOME" > <span>  </span> </div>
+</div>
+<script>
+  $(document).ready(function() {
+    bounce(".mini_rope_container");
+  });
+</script>

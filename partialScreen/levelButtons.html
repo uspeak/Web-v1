@@ -1,0 +1,60 @@
+<script>
+  $('#buttons').css ({
+    'top': '-269px',
+    'left': '-450px',
+    'background-image': "url('/media/img/v1/stick_small.png')"
+  });
+</script>
+
+<div id="top_title" class="top_title">
+    
+    <div id="help" class="help"> </div>
+
+    <h1 id="inner_title" class="inner_title">  Juegos </h1>
+    
+    <div id="settings" class="setting"> </div>
+</div>
+
+<div id="mini_rope_container" class="mini_rope_container">
+  <div id="top_inner_text" class="top_inner_text"> 
+    <span id="title_top" class="title_top"> This is where the magic begins.</span> <br> <br>
+    <span id="text_top" class="text_top"> 
+      This is where the magic begins. Let's play some 
+      games to get an idea of your starting point. 
+    </span> <br> <br>
+    <span id="text_bottom" class="text_top"> 
+      How's your Spanish?
+    </span>
+  </div>
+
+  <div id="mini_central_text" class="mini_central_text">
+    <div id="left_arrow" class="left_arrow"> </div>
+    
+    <div id="mini_inner_text" class="mini_inner_text">
+      <span id="titleLevel" class="title_Level"> Nada </span> <br> <br>
+      <span id="textLevel" class="text_Level"> I'm a total beginner </span>
+      <div id="levelContainer" class="levelContainer" style="margin: auto; position: relative; width: 200px;">
+        <div id="level1" class="level" onclick="changeLevel(1)"> </div>
+        <div id="level2" class="level" onclick="changeLevel(2)"> </div>
+        <div id="level3" class="level" onclick="changeLevel(3)"> </div>
+      </div>
+      <br>
+    </div>
+
+    <div id="right_arrow" class="right_arrow"> </div>
+  </div>
+
+  <div id="buttonStart" class="buttonStart" >
+    <div id="buttonStartInner"  class="buttonStartInner" onclick="beginDiagnostic(fillerWhichOne);"> </div>
+  </div>
+
+</div>
+
+<div id="buttons" class="buttons">
+    <div class="button_home" onclick="location.reload();" title="HOME" > <span>  </span> </div>
+</div>
+<script>
+  $(document).ready(function() {
+    $(".mini_rope_container").animate({"top": "+=480px"}, 300 * ratio);
+  });
+</script>
