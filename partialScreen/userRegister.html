@@ -2,9 +2,29 @@
 
 <div id="userRegister" class="userRegister">
 
-  <input id="name" type="text" class='inputUser'  value="NOMBRE" onclick="if(this.value=='NOMBRE') this.value=''" onblur="if(this.value=='') this.value='NOMBRE'"/><br />
-  <input id="password" type="password" name="password" class='inputUser' value='PASSWORD' onclick="if(this.value=='PASSWORD') this.value=''" onblur="if(this.value=='') this.value='PASSWORD'"/><br />
-  <input id="email" type="text" name="email" class='inputUser' value='E-MAIL' onclick="if(this.value=='E-MAIL') this.value=''" onblur="if(this.value=='') this.value='E-MAIL'" /><br />
-
+  <input id="name" type="text" class='inputUser'  value="Nombre" onclick="if(this.value=='Nombre') this.value=''" onblur="if(this.value=='') this.value='Nombre'"/><br />
+  <input id="email" type="text" name="email" class='inputUser' value='Email' onclick="if(this.value=='Email') this.value=''" onblur="if(this.value=='') this.value='Email'" /><br />
+  <input id="password" type="password" name="password" class='inputUser' value='Contraseña' onclick="if(this.value=='Contraseña') this.value=''" onblur="if(this.value=='') this.value='Contraseña'"/><br />
+  <input id="show_Password" type="checkbox" name="show_Password"> Mostrar Contraseña<br>
 </div>
 
+<script>
+  
+  $('#show_Password').click(function(){
+    
+    show_password()
+    
+  })
+  
+  function show_password(){
+    
+    if($("#show_Password").is(':checked')) {  
+      
+      document.getElementById('password').setAttribute('type', 'text');
+           
+    } else {  
+      document.getElementById('password').setAttribute('type', 'password');
+    }  
+  }
+  
+</script>

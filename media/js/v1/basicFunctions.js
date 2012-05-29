@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-var ratio =  8;
+var ratio =  6;
 
 var countdown=30;
 var volume=1;
@@ -272,7 +272,7 @@ function updateLives(){
             $('#heart2:visible').hide('scale', null, 1000);
             $('#heart1:visible').hide('scale', null, 1000);
             lives = 0;
-            processEndGame();
+//            processEndGame();
             break;
     }
 }
@@ -525,7 +525,7 @@ function loadMainScreen(){
 
 function userRegistration(){
     
-    $.get(PARTIAL_URLS.gamescreen, {
+    $.get(PARTIAL_URLS.pregamescreen, {
         }, function(data){
             $("#container").html(data);
             
@@ -623,7 +623,7 @@ function changeLevel(n){
             
         case 2:
             $('#titleLevel').text('a little')
-            $('#textLevel2').text('"tengo un vocabulario basico"')
+            $('#textLevel2').text('"Tengo un vocabulario basico"')
             break;
             
         case 3:
@@ -797,7 +797,7 @@ function messageEffect(message){
         setTimeout(function() {
             div.hide('explode', {
                 pieces: 64
-            }, 80 * ratio);
+            }, 100 * ratio);
             callback();
 
         }, 1000);
@@ -875,4 +875,13 @@ function settingsEffect(){
     }).show('drop', {
         direction: 'up'
     }, 700);
+}
+
+function hiddenPass(){
+  
+  var input=$('#passwordLogin')
+  
+  input.val('');
+  document.getElementById('passwordLogin').setAttribute('type', 'password');
+
 }

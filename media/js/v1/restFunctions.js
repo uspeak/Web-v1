@@ -12,6 +12,8 @@ var language = 1
 
 var profile
 
+var token;
+
 function getWords(){
   $.ajax({
     url: urlBase + 'diagnostics/getDiagnosticWords/' + language +'/' +level+'.json',
@@ -69,7 +71,17 @@ function setUser(){
     success: function (results, text, jq){
             
       var code = results
-      processUserRegister(code);
+      
+      if (code.length > 4){
+        token = results;
+        alert('User Created') 
+        
+      }else {
+        processUserRegister(code);
+      } 
+      
+      
+    //processUserRegister(code);
     },
     error: function (jqXHR, textStatus, errorThrown){
       processUserRegister('500');
@@ -135,8 +147,8 @@ function getToken() {
       alert('Error');
                         
     },
-    //    success: getInformationUser
-    success: updateUser
+    success: getInformationUser
+  //    success: updateUser
   });
 
 }
@@ -157,7 +169,7 @@ function resetPass(email){
     dataType: "json",
     processData: false,
     success: function (results, text, jq){
-     alert('Exito')
+      alert('Exito')
     },
     error: function (jqXHR, textStatus, errorThrown){
       elert('Error')
@@ -171,7 +183,7 @@ function resetPass(email){
 
 function getInformationUser(results){
   
-  var token = results
+  token = results
   
   $.ajax({
     type: "GET",
