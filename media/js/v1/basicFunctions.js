@@ -254,6 +254,7 @@ function processLives(){
   if (lives == 0){
     errorThree = currentId;
     messageEffect('lives')
+  
   }
   updateLives();
 }   

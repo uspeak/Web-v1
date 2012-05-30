@@ -12,24 +12,26 @@ var token;
 
 function setDiagBeta(emailbeta){
     
-  var body = '"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}'
+  var bodyString = '{"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}}'
   
-  alert (body)
   $.ajax({
                     
     type: "POST",
     url: urlBase + 'diagnostics/setDiagBeta.json',
-    data: body,
+    data: bodyString,
     contentType: "application/json; charset=utf-8", 
     dataType: "json",
     processData: false,
     success: function (results, text, jq){
-          alert('Exito')
+      alert(results)
+            
     },
     error: function (jqXHR, textStatus, errorThrown){
-      processUserRegister(errorThrown);
+      processUserRegister('500');
     }
   });
+  
+  
 }
 
 function getWords(){

@@ -34,6 +34,7 @@ $(document).ready(function() {
   $('#buttonLogin').bind('click', function() {
         
     getToken();
+    
   })
-  
+      
 })
