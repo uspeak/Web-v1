@@ -650,13 +650,14 @@ body {
 .buttonsHome{
 
 
-
+  font-family:  font-family: 'Paytone One', sans-serif;
+  font-weight: bolder;
   top: -245px;
   left: -440px;
 
   /*  top: 340px;
     left: 10px;*/
-  text-indent: -9999px;
+    text-indent: -9999px;
   position: relative;
   width: 200px;
   height: 190px;
@@ -756,6 +757,21 @@ body {
   position: relative;
   top: 8px;
   left: 6px;
+}
+.presione{
+  
+  position: relative;
+  top: -355px;
+  left: 565px;
+  width: 225px;
+  height: 127px;
+
+  background-image: url('/media/img/v1/presione.png') ;
+  background-repeat: no-repeat;
+
+  background-position: center;
+  
+  
 }
 
 .welcome_button_Yes{
@@ -1224,7 +1240,7 @@ td {
   font-size: 15px;
 
   text-align: center;
-/*  text-transform: uppercase;*/
+  /*  text-transform: uppercase;*/
   margin: auto;
   /*        background-color: red;*/
   width: 100%;
@@ -1241,7 +1257,7 @@ td {
 }
 
 .inputUser{
-      font-size: 12px;
+  font-size: 12px;
   text-indent: 10px;
   position: relative;
   margin: 3px;
