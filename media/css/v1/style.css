@@ -517,7 +517,7 @@ body {
 }
 .title_Level{
 
-  color: #1b75bb;
+  color: #6BB6CB;;
   font-weight: bold; 
   font-size: 20px;
 }
@@ -620,6 +620,8 @@ body {
 
 }
 .text_bottom_image{
+  font-family: 'Lato',sans-serif;
+  font-size: 15px;
   position: relative;
   top:65px;
   /*  left: 85px;*/
@@ -657,7 +659,7 @@ body {
 
   /*  top: 340px;
     left: 10px;*/
-    text-indent: -9999px;
+  text-indent: -9999px;
   position: relative;
   width: 200px;
   height: 190px;
@@ -759,7 +761,7 @@ body {
   left: 6px;
 }
 .presione{
-  
+
   position: relative;
   top: -355px;
   left: 565px;
@@ -770,8 +772,8 @@ body {
   background-repeat: no-repeat;
 
   background-position: center;
-  
-  
+
+
 }
 
 .welcome_button_Yes{

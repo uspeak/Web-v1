@@ -4,7 +4,7 @@
  */
 var ratio =  6;
 
-var countdown=30;
+//var countdown=30;
 var volume=1;
 var game;
 var namesGames = ' processAssociationGame - processFatFingerGame - processWhichOneGame'
@@ -23,6 +23,11 @@ var wordNumber=-1;
 var points =0;
 var lives=3;
 var currentId=1;
+var diagId;
+var errorOne
+var errorTwo
+var errorThree
+
 
 function transition(oldContainer, newContainer){
   $(oldContainer).hide('slide', {
@@ -38,12 +43,14 @@ function transition(oldContainer, newContainer){
 //Create 3 array whivh "Results", 1 for each game
 function loadWords(results){
   
+ 
+
   for (var game in results ){ //TODO: Optimizar la asignación y uso de los resultados.
-        
-    if (game==0){
-            
+    diagId = game
+    
+    if(results[game][0]){
       i=0;
-      $.each(results[game][116], function(index ,element){
+      $.each(results[game][0][116], function(index ,element){
         var words= new Array(4);    
         words[0]= element.id
         words[1]= element.w
@@ -52,12 +59,12 @@ function loadWords(results){
 
         arrayWhichOneGame[i]=words;
         i++;
-      });
-            
+      }); 
+    }
 
-    } else if (game==1){
-      i=0;
-      $.each(results[game][115], function(index ,element){
+    if(results[game][1]){
+      j=0;
+      $.each(results[game][1][115], function(index ,element){
         var words= new Array(6);    
         words[0]= element.id
         words[1]= element.w
@@ -66,21 +73,22 @@ function loadWords(results){
         words[4]= element.d2
         words[5]= element.d3
 
-        arrayAssociationGame[i]=words;
-        i++;
+        arrayAssociationGame[j]=words;
+        j++;
       });
-    } else {
-      i=0;
-      $.each(results[game][117], function(index ,element){
+    }
+    
+    if(results[game][2]){
+      k=0;
+      $.each(results[game][2][117], function(index ,element){
         var words= new Array(3);    
         words[0]= element.id
         words[1]= element.w
         words[2]= element.m
-        arrayFatFingerGame[i]=words;
-        i++;
+        arrayFatFingerGame[k]=words;
+        k++;
       });
     }
-        
   }
 
 }
@@ -146,9 +154,9 @@ function startGame(choose){
     }
   }
 
-if (nameCurrentGame !== 'processFatFingerGame' ){
-  currentWord++;
-}
+  if (nameCurrentGame !== 'processFatFingerGame' ){
+    currentWord++;
+  }
 }
 
 function processName(){
@@ -188,7 +196,7 @@ function processName(){
 
     case 'processFatFingerGame':
       totalWords= arrayFatFingerGame.length;
-      if(language == 1) {
+      if(language != 1) {
                     
         game = 'Dedo Gordo'
                                         
@@ -241,13 +249,13 @@ function processPoints(){
 
 function processLives(){
    
+   
   lives=lives-1;
   if (lives == 0){
+    errorThree = currentId;
     messageEffect('lives')
   }
   updateLives();
-    
-  
 }   
      
      
@@ -255,16 +263,18 @@ function updateLives(){
   switch (lives){
     
     case 2:
+      errorOne = currentId
       $('#heart3:visible').hide('scale', null, 1000);
-            
       break;
             
     case 1:
+      errorTwo = currentId
       $('#heart3:visible').hide('scale', null, 1000);
       $('#heart2:visible').hide('scale', null, 1000);
       break;
         
     case 0:
+      errorThree = currentId;
       $('#heart3:visible').hide('scale', null, 1000);
       $('#heart2:visible').hide('scale', null, 1000);
       $('#heart1:visible').hide('scale', null, 1000);

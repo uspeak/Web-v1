@@ -1,22 +1,40 @@
 
 //Rest Services URL
 var urlBase= REST_URL;
-
 // level choosed
 var level=1;
-
 // language choosed
 // 1= spanish 2 = english
 var language = 1
-
-
 var profile
-
 var token;
+
+
+function setDiagBeta(emailbeta){
+    
+  var body = '"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}'
+  
+  alert (body)
+  $.ajax({
+                    
+    type: "POST",
+    url: urlBase + 'diagnostics/setDiagBeta.json',
+    data: body,
+    contentType: "application/json; charset=utf-8", 
+    dataType: "json",
+    processData: false,
+    success: function (results, text, jq){
+          alert('Exito')
+    },
+    error: function (jqXHR, textStatus, errorThrown){
+      processUserRegister(errorThrown);
+    }
+  });
+}
 
 function getWords(){
   $.ajax({
-    url: urlBase + 'diagnostics/getDiagnosticWords/' + language +'/' +level+'.json',
+    url: urlBase + 'diagnostics/getDiagnosticWordsBeta/' + language +'/' +level+'.json',
     type: "GET",
     dataType: "json",
     success: loadWords,
@@ -321,9 +339,6 @@ function getAutentication() {
   });
 
 }
-
-
-
 
 //Methods Needed to codification
 
