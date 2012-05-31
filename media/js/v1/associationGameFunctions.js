@@ -48,22 +48,39 @@ function processAssociationGame(){
 
             );
         
-        divCenter($('#w'))
-        divLeft($('#d0'))
-        divRight($('#d1'))
+        divCenterUp($('#w'))
+        divLeftUp($('#d0'))
+        divRightUp($('#d1'))
         divLeftBottom($('#d2'))
         divRightBottom($('#d3'))
-        bindFunction()
+        bindFunctionAssociation()
     }
 }
 
-function divCenter(divName){
+function divCenterUp(divName){
     divName.css({
         position:'absolute',
         left: ($(window).width() - divName.outerWidth())/2,
         top: ($(window).height() - divName.outerHeight())/4
     });
 }
+
+function divLeftUp(divName){
+  divName.css({
+    position:'absolute',
+    left: ($(window).width() - divName.outerWidth())/3,
+    top: ($(window).height() - divName.outerHeight())/2.5
+  });
+}
+
+function divRightUp(divName){
+  divName.css({
+    position:'absolute',
+    left: ($(window).width() - divName.outerWidth()*(2)),
+    top: ($(window).height() - divName.outerHeight())/2.5
+  });
+}
+
 
 function divLeftBottom(divName){
     divName.css({
@@ -79,4 +96,29 @@ function divRightBottom(divName){
         left: ($(window).width() - divName.outerWidth()*(2)),
         top: ($(window).height() - divName.outerHeight()*(2.5))
     });
+}
+
+function bindFunctionAssociation(){
+  
+  $('.d0').click(function(){
+    var div = $('#'+this.id)
+    var text=div.text().trim();
+    if ( text === word){
+      div.css({
+        'background-image': "url('/media/img/v1/correct.png')"
+      });
+      setTimeout(function(){
+        startGame('2')
+      }, 500)
+    }
+    else{
+      div.css({
+        'background-image': "url('/media/img/v1/error.png')"  
+      });
+      setTimeout(function(){
+        startGame('1')
+      }, 500)
+    }
+  })
+
 }

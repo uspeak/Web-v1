@@ -1133,6 +1133,20 @@ body {
 
 }
 
+.distractor{
+  font-family: 'Delius', cursive;
+  position: relative;
+
+  cursor: pointer;
+  float: left;
+  background-image: url('/media/img/v1/game_whichone_note.png') ;
+  background-repeat: no-repeat;
+  padding-top: 30px;
+  width: 433px;
+  height: 120px;
+  font-size: larger ;  
+
+}
 .d0 {
   font-family: 'Delius', cursive;
   position: relative;

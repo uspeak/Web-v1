@@ -17,7 +17,7 @@ var clockInterval;
   var countSecons = 0;
   // Extending the jQuery core:
   $.fn.tzineClock = function(time){
-	
+   countSecons = 0;
     // "this" contains the elements that were selected when calling the plugin: $('elements').tzineClock();
     // If the selector returned more than one element, use the first one:
 		
@@ -122,3 +122,12 @@ var clockInterval;
   }
 	
 })(jQuery)
+
+function pause()
+  {
+    animation(divClock, countSecons++, time);
+    
+    
+    
+    
+  }

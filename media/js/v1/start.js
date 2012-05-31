@@ -1,7 +1,7 @@
 var imgCounter = 1;
 var splashInterval;
 $(document).ready(function() {
- splashInterval = setInterval('splash()', 200);
+   splashInterval = setInterval('splash()', 200);
 //  bounce(".mini_rope_container")
 });
 
@@ -23,7 +23,13 @@ function splash(){
   }
 }
 $(document).ready(function() {
-      
+  
+  $('#buttonStartInner').bind('click', function() {
+        
+    beginDiagnostic(fillerWhichOne);
+  
+  })
+  
   //Binding settings Buttons
   $('.buttonsActive').bind('click', function() {
     $('#'+this.id).toggleClass('buttonsDisable');   
@@ -36,5 +42,5 @@ $(document).ready(function() {
     getToken();
     
   })
-      
+  
 })
