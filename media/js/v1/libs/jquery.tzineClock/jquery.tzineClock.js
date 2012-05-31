@@ -12,9 +12,9 @@
  * Released: Monday 28th December, 2009 - 00:00
  */
 var clockInterval;
+var countSecons;
 
 (function($){
-  var countSecons = 0;
   // Extending the jQuery core:
   $.fn.tzineClock = function(time){
    countSecons = 0;
@@ -123,11 +123,8 @@ var clockInterval;
 	
 })(jQuery)
 
-function pause()
-  {
-    animation(divClock, countSecons++, time);
-    
-    
-    
+function pauseClock() {
+//    animation(divClock, countSecons++, time);
+    clearInterval(clockInterval);
     
   }

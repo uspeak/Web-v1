@@ -27,7 +27,6 @@ $(document).ready(function() {
   $('#buttonStartInner').bind('click', function() {
         
     beginDiagnostic(fillerWhichOne);
-  
   })
   
   //Binding settings Buttons
@@ -38,9 +37,7 @@ $(document).ready(function() {
       
   //Binding login Setings Buttons
   $('#buttonLogin').bind('click', function() {
-        
     getToken();
-    
   })
   
 })

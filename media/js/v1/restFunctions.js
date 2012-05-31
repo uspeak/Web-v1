@@ -10,7 +10,11 @@ var profile
 var token;
 
 
-function setDiagBeta(emailbeta){
+var emailbeta
+
+function getProfile(){
+  
+  emailbeta = 'emailbeta@uspeak.com'
     
   var bodyString = '{"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}}'
   
@@ -23,7 +27,8 @@ function setDiagBeta(emailbeta){
     dataType: "json",
     processData: false,
     success: function (results, text, jq){
-      alert(results)
+      profile = results[0];
+      setUser();
             
     },
     error: function (jqXHR, textStatus, errorThrown){
@@ -33,6 +38,7 @@ function setDiagBeta(emailbeta){
   
   
 }
+
 
 function getWords(){
   $.ajax({
@@ -46,33 +52,10 @@ function getWords(){
   });
 }
 
-function getProfile(){
-    
-  var diagnostic = '{"Diag":{"id":"'+ currentId +'"}}'
-    
-    
-  $.ajax({
-                    
-    type: "POST",
-    url: urlBase + 'diagnostics/setDiag.json',
-    data: diagnostic,
-    contentType: "application/json; charset=utf-8", 
-    dataType: "json",
-    processData: false,
-    success: function (results, text, jq){
-      profile = results[0];
-      setUser();
-    },
-    error: function (jqXHR, textStatus, errorThrown){
-      processUserRegister('500');
-    }
-  });
-}
+
  
 
 function setUser(){
-    
-  //    getProfile()
     
   var username = document.getElementById('name').value
   var password = document.getElementById('password').value
