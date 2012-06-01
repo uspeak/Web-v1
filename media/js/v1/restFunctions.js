@@ -16,8 +16,8 @@ function getProfile(){
   
   emailbeta = BETA_EMAIL;
     
-  var bodyString = '{"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}}'
-  
+  var bodyString = '{"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":['+ errors +']}}'
+   
   $.ajax({
                     
     type: "POST",
@@ -28,7 +28,11 @@ function getProfile(){
     processData: false,
     success: function (results, text, jq){
       profile = results[0];
-      setUser();
+      
+      
+      if (profile !== '400'){
+        setUser();
+      }
     },
     error: function (jqXHR, textStatus, errorThrown){
       processUserRegister('500');

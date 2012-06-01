@@ -4,7 +4,6 @@
  */
 var ratio =  6;
 
-//var countdown=30;
 var volume=1;
 var game;
 var namesGames = ' processAssociationGame - processFatFingerGame - processWhichOneGame'
@@ -24,9 +23,7 @@ var points =0;
 var lives=3;
 var currentId=1;
 var diagId;
-var errorOne
-var errorTwo
-var errorThree
+var errors= new Array();
 
 
 function transition(oldContainer, newContainer){
@@ -130,11 +127,11 @@ function startGame(choose){
   $('#gameName').text(game);
     
     
-  if (totalWords < currentWord){
+  if (totalWords < currentWord) {
             
     messageEffect('congrats')
             
-  } else {
+  } else if(lives !== 0) {
     
     switch (nameCurrentGame){
         
@@ -249,10 +246,11 @@ function processPoints(){
 
 function processLives(){
    
-   
+  errors.push(currentId);
+
   lives=lives-1;
+  
   if (lives == 0){
-    errorThree = currentId;
     messageEffect('lives')
   
   }
@@ -264,18 +262,15 @@ function updateLives(){
   switch (lives){
     
     case 2:
-      errorOne = currentId
       $('#heart3:visible').hide('scale', null, 1000);
       break;
             
     case 1:
-      errorTwo = currentId
       $('#heart3:visible').hide('scale', null, 1000);
       $('#heart2:visible').hide('scale', null, 1000);
       break;
         
     case 0:
-      errorThree = currentId;
       $('#heart3:visible').hide('scale', null, 1000);
       $('#heart2:visible').hide('scale', null, 1000);
       $('#heart1:visible').hide('scale', null, 1000);
