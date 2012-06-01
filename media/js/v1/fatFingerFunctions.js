@@ -31,6 +31,7 @@ function startfatFingerGame(){
     })
   }
   
+  
 }
 
 function processFatFingerGame(){

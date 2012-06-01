@@ -13,11 +13,12 @@
  */
 var clockInterval;
 var countSecons;
+var pause= true;
 
 (function($){
   // Extending the jQuery core:
   $.fn.tzineClock = function(time){
-   countSecons = 0;
+    countSecons = 0;
     // "this" contains the elements that were selected when calling the plugin: $('elements').tzineClock();
     // If the selector returned more than one element, use the first one:
 		
@@ -48,12 +49,14 @@ var countSecons;
     // Setting up a interval, executed every 1000 milliseconds:
     
     clockInterval = setInterval(function(){
-      if(countSecons >= time) {
-        countSecons = 0;
-//        processEndGame();
-        messageEffect('time')
+     
+      if(pause) {
+        if(countSecons >= time) {
+          countSecons = 0;
+          messageEffect('time')
+        }
+        animation(divClock, countSecons++, time);
       }
-      animation(divClock, countSecons++, time);
     },1000);
   }
 	
@@ -124,7 +127,14 @@ var countSecons;
 })(jQuery)
 
 function pauseClock() {
-//    animation(divClock, countSecons++, time);
-    clearInterval(clockInterval);
-    
+
+  if (pause){
+    pause = false
+  }else {
+    pause = true;
   }
+    
+}
+function playClock() {
+  pause = true;
+}

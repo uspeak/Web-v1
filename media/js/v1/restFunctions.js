@@ -30,7 +30,7 @@ function getProfile(){
       profile = results[0];
       
       
-      if (profile !== '400'){
+      if (profile != '400'){
         setUser();
       }
     },

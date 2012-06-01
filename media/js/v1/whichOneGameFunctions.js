@@ -5,7 +5,7 @@ function startWhichOneGame(){
   $('#score').text(points);
     
   efectPreGame(function(){
-    $('#fancyClock').tzineClock(120)
+    $('#fancyClock').tzineClock(60)
   });
 }
 

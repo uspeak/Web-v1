@@ -809,7 +809,7 @@ function messageEffect(message){
 }
 
 function helpGame(divHelp){
-  
+    pauseClock();
 
   switch (divHelp){
       
@@ -831,7 +831,8 @@ function helpGame(divHelp){
   
   div.bind('click', function(){
     
-    div.hide()
+    div.hide();
+    playClock()
     
   })
   
