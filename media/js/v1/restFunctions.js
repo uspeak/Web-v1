@@ -5,8 +5,8 @@ var urlBase= REST_URL;
 var level=1;
 // language choosed
 // 1= spanish 2 = english
-var language = LANGUAGE_ID
-var profile
+var language = LANGUAGE_ID;
+var profile;
 var token;
 
 
@@ -14,7 +14,7 @@ var emailbeta
 
 function getProfile(){
   
-  emailbeta = BETA_EMAIL
+  emailbeta = BETA_EMAIL;
     
   var bodyString = '{"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}}'
   
@@ -29,7 +29,6 @@ function getProfile(){
     success: function (results, text, jq){
       profile = results[0];
       setUser();
-            
     },
     error: function (jqXHR, textStatus, errorThrown){
       processUserRegister('500');
