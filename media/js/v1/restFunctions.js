@@ -5,7 +5,7 @@ var urlBase= REST_URL;
 var level=1;
 // language choosed
 // 1= spanish 2 = english
-var language = 1
+var language = LANGUAGE_ID
 var profile
 var token;
 
@@ -14,7 +14,7 @@ var emailbeta
 
 function getProfile(){
   
-  emailbeta = 'emailbeta@uspeak.com'
+  emailbeta = BETA_EMAIL
     
   var bodyString = '{"Diag":{"id":"'+ currentId +' ","email":"'+ emailbeta +'","diagid":"'+ diagId +'","errors":["'+ errorOne +'","'+ errorTwo +'","'+ errorThree +'"]}}'
   
