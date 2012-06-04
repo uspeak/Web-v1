@@ -45,7 +45,7 @@ function getProfile(){
 
 function getWords(){
   $.ajax({
-    url: urlBase + 'diagnostics/getDiagnosticWordsBeta/' + language +'/' +level+'.json',
+    url: urlBase + 'diagnostics/getDiagnosticWordsBeta2/' + language +'/' +level+'.json',
     type: "GET",
     dataType: "json",
     success: loadWords,
@@ -139,24 +139,23 @@ function getToken() {
   var password = $('#passwordLogin').val()
     
     
-  $.ajax({
-    type: "GET",
-    url: urlBase + 'users/token.json',
-    dataType: "json",
-    processData: false,
-    beforeSend : function(req) {
-      req.setRequestHeader('Authorization', 
-        make_base_auth (email, password));
-    },
-    error: function(XMLHttpRequest, textStatus, errorThrown) {   
-                        
-      alert('Error');
-                        
-    },
-    success: getInformationUser
-  //    success: updateUser
-  });
-
+    $.ajax({
+      type: "GET",
+      url: urlBase + 'users/token.json',
+      dataType: "json",
+      processData: false,
+      beforeSend : function(req) {
+        req.setRequestHeader('Authorization', 
+       make_base_auth (email, password));
+      },
+      error: function(XMLHttpRequest, textStatus, errorThrown) {   
+                          
+        alert('Error de conexion');
+                          
+      },
+     success: getInformationUser
+      //   success: updateUser
+    });
 }
 
 
@@ -225,9 +224,9 @@ function getInformationUser(results){
   
 }
 
-function updateUser(results){
+function updateUser(){
 
-  var token = results;
+  var token = "394105838fe3c2f3794126c1378ef623fe0ccab3";
   var bodyString= '{"User":{"username":"cacho1","password":"1","email":"cacho@gmail.com","profile": 5,"lang_dir":1,"points": 999}}'
    
   $.ajax({
@@ -242,7 +241,7 @@ function updateUser(results){
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {   
                         
-      alert('Error');
+      alert('Error de conexion');
                         
     },
     success: function(games, text, jq) {   

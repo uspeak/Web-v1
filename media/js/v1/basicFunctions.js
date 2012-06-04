@@ -41,53 +41,55 @@ function transition(oldContainer, newContainer){
 function loadWords(results){
   
  
-
   for (var game in results ){ //TODO: Optimizar la asignación y uso de los resultados.
     diagId = game
     
-    if(results[game][0]){
-      i=0;
-      $.each(results[game][0][116], function(index ,element){
-        var words= new Array(4);    
-        words[0]= element.id
-        words[1]= element.w
-        words[2]= element.m
-        words[3]= element.d1
-
-        arrayWhichOneGame[i]=words;
-        i++;
-      }); 
-    }
-
-    if(results[game][1]){
-      j=0;
-      $.each(results[game][1][115], function(index ,element){
-        var words= new Array(6);    
-        words[0]= element.id
-        words[1]= element.w
-        words[2]= element.m
-        words[3]= element.d1
-        words[4]= element.d2
-        words[5]= element.d3
-
-        arrayAssociationGame[j]=words;
-        j++;
-      });
-    }
+    for (counter=0; counter<results[game].length; counter++){
     
-    if(results[game][2]){
-      k=0;
-      $.each(results[game][2][117], function(index ,element){
-        var words= new Array(3);    
-        words[0]= element.id
-        words[1]= element.w
-        words[2]= element.m
-        arrayFatFingerGame[k]=words;
-        k++;
-      });
+      if(results[game][counter][116]){
+        i=0;
+        $.each(results[game][counter][116], function(index ,element){
+          var words= new Array(4);    
+          words[0]= element.id
+          words[1]= element.w
+          words[2]= element.m
+          words[3]= element.d1
+
+          arrayWhichOneGame[i]=words;
+          i++;
+        }); 
+      }
+
+      if(results[game][counter][115]){
+        j=0;
+        $.each(results[game][counter][115], function(index ,element){
+          var words= new Array(6);    
+          words[0]= element.id
+          words[1]= element.w
+          words[2]= element.m
+          words[3]= element.d1
+          words[4]= element.d2
+          words[5]= element.d3
+
+          arrayAssociationGame[j]=words;
+          j++;
+        });
+      }
+    
+      if(results[game][counter][117]){
+        k=0;
+        $.each(results[game][counter][117], function(index ,element){
+          var words= new Array(3);    
+          words[0]= element.id
+          words[1]= element.w
+          words[2]= element.m
+          arrayFatFingerGame[k]=words;
+          k++;
+        });
+      }
+    
     }
   }
-
 }
 
 function startGame(choose){
@@ -305,12 +307,12 @@ function processNextGame(){
         
       case 'processWhichOneGame':
         nameCurrentGame = 'processAssociationGame';
-        beginDiagnostic(fillerAssociation)
+        initGame(fillerAssociation)
         break;
             
       case "processAssociationGame":
         nameCurrentGame = 'processFatFingerGame';
-        beginDiagnostic(fillerFatFinger)
+        initGame(fillerFatFinger)
         break;  
             
       case 'processFatFingerGame':
@@ -339,12 +341,12 @@ function processBackGame(){
             
     case "processAssociationGame":
       nameCurrentGame = 'processWhichOneGame';
-      beginDiagnostic(fillerWhichOne)
+      initGame(fillerWhichOne)
       break;  
             
     case 'processFatFingerGame':
       nameCurrentGame = 'processAssociationGame';
-      beginDiagnostic(fillerAssociation)
+      initGame(fillerAssociation)
       break;
   }     
 }
@@ -368,30 +370,30 @@ function processSound(){
 
 
 function beginDiagnostic(fillterFunction){
-  //    //    save level chossed
-  //    level=levelChoosed;
-  //    if (level != 1){
     
   getWords()
   $.get(PARTIAL_URLS.pregamescreen, {
     }, function(data){
       $("#container").html(data);
-      fillterFunction();
-    });
         
-//    }else { 
-//        nameCurrentGame = 'complete';
-//        userRegistration()
-//    
-//    }
-    
-//    var button = <input  type="submit" value="BEGIN" onclick="beginMainScreenAssociation(2);" style="background:url("/media/img/v1/beginButton.png"); width: 133px; height: 40px; text-indent: -99999px" />
-//    document.getElementById('text_bottom').innerHTML=('');
-  
-//    document.getElementById('mini_central_text').innerHTML=(' <button onclick="beginMainScreenAssociation(1);" >Spanish</button>\n\
-//    <button onclick="beginMainScreenAssociation(2);">English</button>//') ;
-    
+        if (level!=3){
+          fillterFunction();
+        }else{
+          fillerAssociation();
+        }
+        
+    });
 }
+
+function initGame(fillterFunction){
+    
+  $.get(PARTIAL_URLS.pregamescreen, {
+    }, function(data){
+      $("#container").html(data);
+        fillterFunction();
+    });
+}
+
 
 function fillerWhichOne(){
     
@@ -809,7 +811,7 @@ function messageEffect(message){
 }
 
 function helpGame(divHelp){
-    pauseClock();
+  pauseClock();
 
   switch (divHelp){
       
