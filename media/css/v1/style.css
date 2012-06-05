@@ -87,7 +87,7 @@ body {
   border: 0px;
 }
 
-#screen1, #screen2, #screen3, #screen4, #screen5, #screen6, #settingsScreen{
+#screen1, #screen2, #screen3, #screen4, #screen5, #screen6, #settingsScreen, pauseScreen{
   width: 1000px;
   height: 680px;
 }
@@ -134,11 +134,13 @@ body {
 #screen7{
   width: 1000px;
   height: 680px;
-  /*  background-color: #000;*/
   z-index: 20;
-
 }
-
+#pauseScreen{
+  width: 1000px;
+  height: 680px;
+  z-index: 20;
+}
 .alpha {
   opacity: 0.5;
   filter:alpha(opacity=50);

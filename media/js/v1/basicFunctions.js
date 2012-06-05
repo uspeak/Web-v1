@@ -369,11 +369,11 @@ function beginDiagnostic(fillterFunction){
     }, function(data){
       $("#container").html(data);
         
-        if (level!=3){
-          fillterFunction();
-        }else{
-          fillerAssociation();
-        }
+      if (level!=3){
+        fillterFunction();
+      }else{
+        fillerAssociation();
+      }
         
     });
 }
@@ -383,7 +383,7 @@ function initGame(fillterFunction){
   $.get(PARTIAL_URLS.pregamescreen, {
     }, function(data){
       $("#container").html(data);
-        fillterFunction();
+      fillterFunction();
     });
 }
 
@@ -645,6 +645,7 @@ function efectPreGame(theCallback){
   
   var delayTime = 100 * ratio;
   var effectDiv = $( "#effect" );
+  effectDiv.text('Ready');
   doEffect(steady);
   ////
   //callback function to bring a hidden box back
@@ -802,6 +803,7 @@ function messageEffect(message){
 }
 
 function helpGame(divHelp){
+
   pauseClock();
 
   switch (divHelp){
@@ -825,7 +827,7 @@ function helpGame(divHelp){
   div.bind('click', function(){
     
     div.hide();
-    playClock()
+    efectPlay()
     
   })
   

@@ -20,8 +20,6 @@ function startfatFingerGame(){
       startGame('processFatFingerGame');
     });
             
-    $('#rightControl').html('<div id="btn_pause" class="btn_pause"> PAUSE</div>\n\
-      <div id="btn_volume" class="btn_volume" > VOLUME</div>');         
   }
   $('#score').text(points);
   

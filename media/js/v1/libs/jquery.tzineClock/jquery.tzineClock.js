@@ -128,13 +128,72 @@ var pause= true;
 
 function pauseClock() {
 
-  if (pause){
-    pause = false
-  }else {
-    pause = true;
-  }
-    
+  pause = false
 }
 function playClock() {
   pause = true;
 }
+
+
+function efectPause(){
+  
+  div=$('#pauseScreen');
+  
+  div.css({
+    'color': 'none',
+    'background-image': "none",
+    'height': '530px',
+    position:'absolute',
+    left: ($(window).width() - div.outerWidth())/2,
+    top: '0px'
+  }).show();
+  
+  pauseClock();
+  var effectDiv = $( "#effect" );  
+  effectDiv.text('Pause').css({
+    'color': '#787878'
+  });
+  center(changeButton)
+  
+  
+  function center(changeButton){
+    effectDiv.css({
+      position:'absolute',
+      left: ($(window).width() - effectDiv.outerWidth())/2,
+      top: ($(window).height() - effectDiv.outerHeight())/2
+    });
+    $( "#effect" ).show( 'scale', {}, 40 * ratio, changeButton );
+  }
+  
+  function changeButton(){
+    
+    var div = $('#btn_pause');
+  
+    div.css({
+      'background-image': 'url("/media/img/v1/games/play.png")'
+    });
+    $('#btn_pause').unbind()    
+    $('#btn_pause').bind('click', function(){
+      efectPlay()
+    })  
+  }
+  
+} 
+
+function efectPlay(){
+  
+  playClock()
+  $( "#effect" ).hide()
+  $('#pauseScreen').hide();
+    
+  var div = $('#btn_pause');
+  
+  div.css({
+    'background-image': 'url("/media/img/v1/games/pause.png")'
+  });
+  $('#btn_pause').unbind()    
+  $('#btn_pause').bind('click', function(){
+    efectPause()
+  })  
+  
+} 
