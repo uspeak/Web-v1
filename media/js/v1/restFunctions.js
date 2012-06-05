@@ -30,8 +30,8 @@ function getProfile(){
       profile = results[0];
       
       
-      if (profile != '400'){
-        setUser();
+      if (profile == '400'){
+        processUserRegister('400');
       }
     },
     error: function (jqXHR, textStatus, errorThrown){

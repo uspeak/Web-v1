@@ -176,7 +176,6 @@ function processName(){
         game = 'Association'
                     
       }
-      //                beginTime(30)
       break;
         
     case 'processWhichOneGame':
@@ -190,7 +189,6 @@ function processName(){
         game = 'Which One?'
                     
       }
-      //                beginTime(20)
       break;
 
     case 'processFatFingerGame':
@@ -202,12 +200,7 @@ function processName(){
       }else {
                     
         game = 'Fat Finger'
-                    
       }
-      break;
-                
-    default:
-      //  processAssociationGame();
       break;
   }
     
@@ -221,7 +214,7 @@ function restartGame(){
   points = 0;
   lives = 3;
   currentId = 1;
-  document.getElementById('lives').innerHTML=(lives +'/3');
+  $('#lives').html(lives +'/3');
   loadMainPanel()
     
 }
@@ -529,7 +522,9 @@ function loadMainScreen(){
 
 
 function userRegistration(){
-    
+  
+  getProfile();    
+  
   $.get(PARTIAL_URLS.pregamescreen, {
     }, function(data){
       $("#container").html(data);
@@ -549,13 +544,9 @@ podrás monitorear tu progreso y acceder a uSpeak a través de distintos disposi
     
           $("#mini_central_text").html(data);
 
-          $('#buttonStart').html("<div id='buttonStartInner' class='buttonStartInner'  onclick='getProfile();'> LISTO </div> ");
+          $('#buttonStart').html("<div id='buttonStartInner' class='buttonStartInner'  onclick='setUser();'> LISTO </div> ");
 
           
-        //                    $('#buttonStartInner').css({
-        //    
-        //                        'background-image': "url('/media/img/v1/login_button_go.png')" 
-        //                    })
         });
 
     });
@@ -872,6 +863,11 @@ function settingsEffect(){
     
   $('#logOutSettings').bind('click', function(){
     div.hide();
+  })
+  
+  $('.button_home').bind('click', function(){
+    div.hide();
+        
   })
   
   div.css({
