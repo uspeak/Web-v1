@@ -8,7 +8,7 @@ function startAssociationGame(){
       startGame('processAssociationGame');
       $('#score').text(points);
       efectPreGame(function(){
-        $('#fancyClock').tzineClock(120)
+        $('#fancyClock').tzineClock(associationClock)
       });
     });        
 }
@@ -116,6 +116,7 @@ function bindFunctionAssociation(){
       }, 500)
     }
     else{
+      distractor = ($('#'+this.id).html())
       div.css({
         'background-image': "url('/media/img/v1/error.png')"  
       });

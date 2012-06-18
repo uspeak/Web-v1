@@ -21,7 +21,7 @@ function getProfile(){
   $.ajax({
                     
     type: "POST",
-    url: urlBase + 'diagnostics/setDiagBeta.json',
+    url: urlBase + 'diagnostics/setDiagBeta2.json',
     data: bodyString,
     contentType: "application/json; charset=utf-8", 
     dataType: "json",
@@ -44,7 +44,7 @@ function getProfile(){
 
 
 function getWords(){
-  $.ajax({
+  $.ajax({                      
     url: urlBase + 'diagnostics/getDiagnosticWordsBeta2/' + language +'/' +level+'.json',
     type: "GET",
     dataType: "json",

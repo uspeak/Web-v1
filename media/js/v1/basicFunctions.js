@@ -24,6 +24,12 @@ var lives=3;
 var currentId=1;
 var diagId;
 var errors= new Array();
+var distractor = ''; 
+
+var whichOneClock;
+var associationClock;
+var fatFingerClock;
+
 
 
 function transition(oldContainer, newContainer){
@@ -46,9 +52,10 @@ function loadWords(results){
     
     for (counter=0; counter<results[game].length; counter++){
     
-      if(results[game][counter][116]){
+      if(results[game][counter].id== 116){
+        whichOneClock = results[game][counter].time;
         i=0;
-        $.each(results[game][counter][116], function(index ,element){
+        $.each(results[game][counter].W, function(index ,element){
           var words= new Array(4);    
           words[0]= element.id
           words[1]= element.w
@@ -60,9 +67,10 @@ function loadWords(results){
         }); 
       }
 
-      if(results[game][counter][115]){
+      if(results[game][counter].id== 115){
+        associationClock = results[game][counter].time;
         j=0;
-        $.each(results[game][counter][115], function(index ,element){
+        $.each(results[game][counter].W, function(index ,element){
           var words= new Array(6);    
           words[0]= element.id
           words[1]= element.w
@@ -76,9 +84,10 @@ function loadWords(results){
         });
       }
     
-      if(results[game][counter][117]){
+      if(results[game][counter].id== 117){
+        fatFingerClock = results[game][counter].time;
         k=0;
-        $.each(results[game][counter][117], function(index ,element){
+        $.each(results[game][counter].W, function(index ,element){
           var words= new Array(3);    
           words[0]= element.id
           words[1]= element.w
@@ -240,8 +249,9 @@ function processPoints(){
 }
 
 function processLives(){
-   
-  errors.push(currentId);
+  var errorString = '{"id":'+ currentId + ',"dist":"'+ distractor +'"}'
+  
+  errors.push(errorString);
 
   lives=lives-1;
   

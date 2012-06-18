@@ -16,6 +16,8 @@ var marches;
 
 function startfatFingerGame(){
   if (wordNumber <  1){
+    distractor = '';
+
     $("#body_game").load(PARTIAL_URLS.fatfinger, null, function(){
       startGame('processFatFingerGame');
     });
@@ -25,7 +27,7 @@ function startfatFingerGame(){
   
   if ( arrayFatFingerGame.length !== 0) {
     efectPreGame(function(){
-      $('#fancyClock').tzineClock(60)
+      $('#fancyClock').tzineClock(fatFingerClock)
     })
   }
   
@@ -65,9 +67,8 @@ function processFatFingerGame(){
       fillDinamicTable(onlyLetters.length, 'dash_table');
       fillDinamicTable(onlyLetters.length, 'letter_table');
       dragAndDrop();
-     
       bindClick();
-       
+
     }else {     
       processNextGame();
     }
@@ -162,7 +163,7 @@ function processMatches(){
     clearInterval(clockInterval);
     processPoints()
     messageEffect('fatFinger')
-    $('#fancyClock').tzineClock(30)
+    $('#fancyClock').tzineClock(fatFingerClock)
 
       
     

@@ -1,7 +1,7 @@
 var imgCounter = 1;
 var splashInterval;
 $(document).ready(function() {
-  splashInterval = setInterval('splash()', 100);
+ splashInterval = setInterval('splash()', 100);
 // bounce(".mini_rope_container")
 });
 

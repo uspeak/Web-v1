@@ -5,7 +5,7 @@ function startWhichOneGame(){
   $('#score').text(points);
     
   efectPreGame(function(){
-    $('#fancyClock').tzineClock(60)
+    $('#fancyClock').tzineClock(whichOneClock)
   });
 }
 
@@ -69,6 +69,10 @@ function bindFunction(){
       }, 500)
     }
     else{
+
+      // save mistake word
+      distractor = ($('#'+this.id).html())
+
       div.css({
         'background-image': "url('/media/img/v1/errorWhichOne.png')"  
       });
@@ -76,6 +80,7 @@ function bindFunction(){
         startGame('1')
       }, 500)
     }
+    
   })
 
 }
